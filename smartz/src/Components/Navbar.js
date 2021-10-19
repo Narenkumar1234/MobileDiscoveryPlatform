@@ -18,7 +18,7 @@ function Navbar(){
       <nav className="lg:px-20 bg-white shadow-md">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-           <div className="flex"><a className="text-2xl lg:text-4xl py-2 px-2 text-green font-semibold transition duration-300" href="#pablo">Smartz</a></div>
+           <div className="flex"><Link className="text-2xl lg:text-4xl py-2 px-2 text-green font-semibold transition duration-300" to="/">Smartz</Link></div>
             <button 
               className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none transition duration-300"
               type="button"
