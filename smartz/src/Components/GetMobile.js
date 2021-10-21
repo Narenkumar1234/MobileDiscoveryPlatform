@@ -150,7 +150,7 @@ return (
       </div>
 
       <div className="row-span-4 grid lg:grid-cols-5 lg:space-x-3 lg:px-2 text-center mx-auto">
-       <a href={`https://www.amazon.com/s?k=${mobile.mobilename}`}>  
+       <a href={`https://www.flipkart.com/search?q=${mobile.mobilename}`}>  
         <img id="MImage" className="text-center mx-auto w-10/12 cursor-pointer" src={mobile.imagesrc}  alt="xoami mobile"/>  
         </a>
         <div id="performance">
