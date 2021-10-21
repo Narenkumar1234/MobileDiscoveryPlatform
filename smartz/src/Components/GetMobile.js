@@ -1,12 +1,16 @@
 import React from "react";
 import {useEffect, useState} from 'react';
+import { Link } from "react-router-dom";
 import 'reactjs-popup/dist/index.css';
 import Araise from "./Araise";
 var Compare=[];
 
 const makeLink = (str,name,store) =>{
-  if(str==="null"){
-    return "https://www.google.com/search?q="+name+" "+store;
+  if(str==="null" ){
+    if(store==="flipkart")
+    return "https://www.flipkart.com/search?q="+name;
+    else
+    return "https://www.amazon.com/s?k="+name;
   }
       var mySubString = str.substring(
       str.indexOf("=") + 1,
@@ -146,8 +150,9 @@ return (
       </div>
 
       <div className="row-span-4 grid lg:grid-cols-5 lg:space-x-3 lg:px-2 text-center mx-auto">
-        <img id="MImage" className="text-center mx-auto w-10/12 " src={mobile.imagesrc}  alt="xoami mobile"/>  
-        
+       <a href={`https://www.amazon.com/s?k=${mobile.mobilename}`}>  
+        <img id="MImage" className="text-center mx-auto w-10/12 cursor-pointer" src={mobile.imagesrc}  alt="xoami mobile"/>  
+        </a>
         <div id="performance">
           <h1 className="lg:mt-10 font-bold p-3 text-center  lg:h-48 box-border shadow-lg"><img className="inline" src="https://i.ibb.co/3skXMcx/performance-svg.png" alt="performance-svg" border="0" /> Performance <hr/> <span className="font-normal pt-0">{mobile.performance}</span> </h1>
         </div>
