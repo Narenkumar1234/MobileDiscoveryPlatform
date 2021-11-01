@@ -1,7 +1,5 @@
 import React from "react";
 import {useEffect, useState} from 'react';
-import { Link } from "react-router-dom";
-import 'reactjs-popup/dist/index.css';
 import Araise from "./Araise";
 var Compare=[];
 
@@ -25,9 +23,11 @@ const GetMobile = ( props ) => {
   const [mobile,setMobile] = useState([]);
   const [loading,setLoading] = useState(false);
   const [compare,setCompare] = useState(false);
+  const [added,setAdded] = useState("");
   var response;
   var Search;
   var name,price,battery,camera,display,a,b,c,d,e;
+
 const getMobile = async () => {
   try{
    if(typeof props.sort === 'undefined'){
@@ -40,7 +40,7 @@ const getMobile = async () => {
         battery = typeof props.batt ==='undefined' ? '1000':props.batt;
         camera  = typeof props.cam  ==='undefined' ? '12':props.cam;     
         display = typeof props.disp ==='undefined' ? '1.0':props.disp;  
-        Search      = typeof props.search ==='undefined' ? 'search': props.search;
+        Search  = typeof props.search ==='undefined' ? 'search': props.search;
         setLoading(false);
         response = await fetch("/"+name+"/"+price+"/"+battery+"/"+camera+"/"+display+"/"+Search);
       }
@@ -101,7 +101,7 @@ const getMobile = async () => {
  }
 function AddToCompare(heyMobile){
   Compare.push(heyMobile);
-
+  setAdded(heyMobile.mobileName);
   if(Compare.length===2){
     setCompare(true);
   }
@@ -117,8 +117,8 @@ function AddToCompare(heyMobile){
 
 useEffect(()=> {
   getMobile();  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[props.name,props.cost,props.batt,props.cam,props.disp,props.search,props.sort])
+
 
 return (
 <>
@@ -130,7 +130,7 @@ return (
   box-border border-2 rounded-lg bg-blue lg:ml-96 lg:bottom-6 bottom-7 mb-5 animate-none 
   cursor-defalut shadow-lg text-left px-10">
   =&gt; Added ({Compare.length})</span></center>):(<div></div>)}
-{compare && compare!=='null' ? (<Araise list={Compare}/>):(<div></div>)}
+{compare ? (<Araise list={Compare}/>):(<div></div>)}
 { loading ? (
   // eslint-disable-next-line 
   mobile.filter((mobile) => {
@@ -173,7 +173,7 @@ return (
       </div>
 
       <div className="lg:row-span-1 lg:grid lg:grid-cols-5 text-center">
-      <button className="lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5" onClick={()=>AddToCompare(mobile)}> + Add to compare  </button>  
+      <button className={"lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5"+(added ? " text-blue" : " ")} onClick={()=>AddToCompare(mobile)}> + Add to compare  </button>  
         <div className="lg:col-span-4 text-center lg:text-right ">   
         <h1 className="lg:hidden inline-block font-semibold text-right">Buy on </h1>
           <a href={makeLink(mobile.flipkartlink,mobile.mobilename,"flipkart")}><img className="w-14 lg:hidden inline-block" src="https://i.ibb.co/BB9ymDL/flipkart.jpg" alt="flipkart" /><h1 className="hidden lg:inline-block lg:px-5 lg:py-2 font-bold inline-block text-xl"><img className="w-14 inline-block" src="https://i.ibb.co/BB9ymDL/flipkart.jpg" alt="flipkart" />flipkart</h1></a>
@@ -183,7 +183,6 @@ return (
       </div>
 </div>  
 ))
-
 ):(<div className="lg:px-24 lg:py-7 px-14 py-7 lg:grid lg:grid-cols-1 animate-pulse">
 <div  className="rounded-lg border-t-2 border-blue lg:grid grid-rows-6 shadow-md mx-1 md:col-span-1">
       <div className="row-span-1 lg:grid lg:grid-cols-5">
@@ -212,7 +211,7 @@ return (
       </div>
 
       <div className="lg:row-span-1 lg:grid lg:grid-cols-5 text-center ">
-      <button className="lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5" onClick={()=>AddToCompare(mobile)}> + Add to compare  </button>  
+      <button className={"lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5"+(added===heyMobile.mobileName? " text-green": " ")} onClick={()=>AddToCompare(mobile)}> + Add to compare  </button>  
         <div className="lg:col-span-4 text-center lg:text-right">   
         <a href="www.google.com"><img className="w-14 lg:hidden inline-block" src="https://i.ibb.co/BB9ymDL/flipkart.jpg" alt="flipkart" /><h1 className="hidden lg:inline-block lg:px-5 lg:py-2 font-bold inline-block text-xl"><img className="w-14 inline-block" src="https://i.ibb.co/BB9ymDL/flipkart.jpg" alt="flipkart" />flipkart</h1></a>
           <a href="www.google.com"><img className="w-10 lg:hidden mt-2 inline-block" src="https://i.ibb.co/VjKn8y7/amazon.png" alt="amazon" /><h1 className="hidden lg:inline-block lg:px-5 lg:py-2 font-bold inline-block text-xl"><img className="w-10 inline-block" src="https://i.ibb.co/VjKn8y7/amazon.png" alt="amazon" />amazon</h1></a>

@@ -47,7 +47,7 @@ const PrettoSlider = withStyles({
 
 
 
-export default function Range() {
+export default () => {
   const classes = useStyles();
   const [value,setValue]= useState([10000,20000])
 

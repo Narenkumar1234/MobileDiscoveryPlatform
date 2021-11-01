@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "./Filter"
-import {  BrowserRouter as Router,  Route, Switch } from 'react-router-dom';
+import {  BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 import { withRouter } from "react-router";
 import Home from "./Home";
 import Navbar from "./Navbar";

@@ -1,11 +1,11 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState } from "react";
 import GetMobile from "./GetMobile"
 import { useParams } from "react-router";
 import {faFilter} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
-const filterIcon =<FontAwesomeIcon  icon ={faFilter}/>
+const filterIcon =<FontAwesomeIcon  icon ={faFilter}/>  
 const close = <FontAwesomeIcon icon={faTimesCircle}/>
 
 function Filter () {
@@ -58,9 +58,6 @@ function Filter () {
   const [LoadingDisplay,SetLoadingDisplay] =useState(false);
   const [LoadingSort,SetLoadingSort] = useState(false);
   
-  useEffect(()=>{
-      <GetMobile name={Mobile} cost={Price} batt={Battery} cam={Camera} disp={Display} search={Search} sort={Sort}/>
-  },[Mobile,Price,Battery,Camera,Display,Search,Sort])
  
   //responsive open filter
   function openFilter(){
@@ -393,7 +390,7 @@ className="cursor-pointer hover:text-white text-xl w-full pt-4 pb-3 rounded bg-t
 
 </div>
 <div className="lg:col-span-10 md:col-span-6">
- <GetMobile name={Mobile} cost={Price} batt={Battery} cam={Camera} disp={Display} search={Search} sort={Sort}/>
+<GetMobile name={Mobile} cost={Price} batt={Battery} cam={Camera} disp={Display} search={Search} sort={Sort}/>
 </div>
 </div>
 </>)
