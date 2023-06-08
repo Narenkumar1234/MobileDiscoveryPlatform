@@ -331,7 +331,6 @@ className="cursor-pointer hover:text-white text-xl w-full pt-4 pb-3 rounded bg-t
 <div className={"mx-10 my-7 lg:w-full p-2 h-full shadow-xl lg:col-span-2 rounded-xl lg:block md:block md:col-span-6 " + (FilterOpen ? " " : " hidden")} >
 <div className="mb-2">
 <span className=" text-left font-bold text-2xl lg:inline-block hidden ">Filters <img className="lg:inline-block lg:ml-24" src="https://i.ibb.co/D5cPpW8/filter-removebg-preview.png" width="40" height="40" alt="filter" border="0"></img> </span>
-
 </div>
 
 
