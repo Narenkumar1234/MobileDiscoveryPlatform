@@ -6,14 +6,5 @@ const devConfig = {
     "postgresql://postgres:Narenkumar123*@db.hchugyiucmdbpwinybhx.supabase.co:5432/postgres",
 };
 
-const proConfig = {
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: 0,
-  },
-};
-
-const pool = new Pool(
-  process.env.NODE_ENV === "production" ? proConfig : devConfig
-);
+const pool = new Pool(devConfig);
 module.exports = pool;
