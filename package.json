@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd smartz && npm install && npm run build"
+    "build": "cd smartz && npm install && npm run build"
   },
   "author": "NightGamer01",
   "license": "ISC",
