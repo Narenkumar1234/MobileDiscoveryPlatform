@@ -121,7 +121,7 @@ const GetMobile = (props) => {
         } else if (!isNaN(props.name)) {
           setLoading(false);
           if (
-            typeof props.cam == "undefined" &&
+            typeof props.cam === "undefined" &&
             typeof props.disp === "undefined" &&
             typeof props.batt === "undefined" &&
             typeof props.search === "undefined"
@@ -185,15 +185,8 @@ const GetMobile = (props) => {
 
   useEffect(() => {
     getMobile();
-  }, [
-    props.name,
-    props.cost,
-    props.batt,
-    props.cam,
-    props.disp,
-    props.search,
-    props.sort,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.name,props.cost,props.batt,props.cam,props.disp,props.search,props.sort]);
 
   return (
     <>
@@ -230,6 +223,7 @@ const GetMobile = (props) => {
             ) {
               return mobile;
             }
+            return [];
           })
           .map((mobile) => (
             <div
@@ -325,7 +319,7 @@ const GetMobile = (props) => {
                   <button
                     className={
                       "lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5" +
-                      (added == mobile.mobileName ? " text-vivo" : " ")
+                      (added === mobile.mobileName ? " text-vivo" : " ")
                     }
                     onClick={() => AddToCompare(mobile)}
                   >
@@ -451,7 +445,7 @@ const GetMobile = (props) => {
               <button
                 className={
                   "lg:m-2 text-center text-green px-3 py-3 font-semibold lg:col-span-1 text-lg lg:grid-rows-5" +
-                  (added == mobile.mobileName ? " text-vivo" : " ")
+                  (added === mobile.mobileName ? " text-vivo" : " ")
                 }
                 onClick={() => AddToCompare(mobile)}
               >

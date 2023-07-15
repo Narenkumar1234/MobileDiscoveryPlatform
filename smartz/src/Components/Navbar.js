@@ -10,7 +10,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 const hamburger = <FontAwesomeIcon icon={faBars} />
 const search = <FontAwesomeIcon icon={faSearch} />
 
-function Navbar(){
+export default  function Navbar(){
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     return (
@@ -34,7 +34,8 @@ function Navbar(){
                  <span className="w-auto flex justify-end items-center text-black ">
                   <i className="text-1xl  pl-4">{search}</i></span>
                    <input  className=" w-full bg-gray-200 rounded px-5 py-2 focus:outline-none" type="text"  placeholder="Search Mobiles" onChange={event => (setSearchTerm(event.target.value))} />
-                   <a to={`/getMobilePhone/complete/90000/1000/12/1.0/${searchTerm ? searchTerm: "undefined" }`} >
+                   {/* // eslint-disable-next-line */}
+                   <a href={`/getMobilePhone/complete/90000/1000/12/1.0/${searchTerm ? searchTerm: "undefined" }`} >
                    <button className="transition duration-400 text-black hover:text-white font-semibold text-4xs  hover:bg-green rounded text-black p-2 pl-4 pr-4">Search</button>
                  </a>
                 </div>
@@ -48,4 +49,3 @@ function Navbar(){
     );
 }
 
-export default Navbar;
