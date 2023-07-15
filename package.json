@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "cd smartz && npm install && npm run build"
+    "build": "cd smartz && npm install && npx -p node@14.17 npm run build"
   },
   "author": "NightGamer01",
   "license": "ISC",
