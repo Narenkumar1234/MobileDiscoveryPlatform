@@ -1,9 +1,10 @@
 const Pool = require("pg").Pool;
+require("dotenv").config();
 
 const devConfig = {
   type: "postgres",
   connectionString:
-    "postgresql://postgres:Narenkumar123*@db.hchugyiucmdbpwinybhx.supabase.co:5432/postgres",
+    process.env.DATABASE_URL,
 };
 
 const pool = new Pool(devConfig);
