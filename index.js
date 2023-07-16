@@ -14,6 +14,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(cors());
 app.use(express.json());
 
+app.get("/hello", (req, res) => {
+  res.json(pool);
+});
+
 //sort
 app.get(
   "/:mobileName/:price([0-9]{4,5})/:battery([0-9]{4})/:camera([0-9]{2})/:display(([0-9]*[.])?[0-9]+)/:search/:sort",

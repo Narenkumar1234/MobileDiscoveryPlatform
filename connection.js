@@ -6,7 +6,7 @@ const devConfig = {
   connectionString:
     process.env.DATABASE_URL,
 };
-console.log("connected");
 
 const pool = new Pool(devConfig);
+console.error(pool);
 module.exports = pool;
